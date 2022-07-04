@@ -18,13 +18,51 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     //método que vai buildar toda vez nossa view passando o context
     // (ajuda a identificar a nossa árvore) retornando um widget
-    return Scaffold(
-      //esqueleto do app, sempre interessanter ter 1 em cada Page
-      appBar: AppBar(), // Widget do próprio Flutter para AppBar
-      body: const Center(
+
+    return Scaffold(  //esqueleto do app, sempre interessanter ter 1 em cada Page
+      appBar: AppBar(
+        title: const Text('Minha barra'),
+      ), // Widget do próprio Flutter para AppBar
+      body: Center(
         //Widget para centralizar dentro do espaço disponível
-        child: Text('Olá mundo'), //Widget para mostrar um texto na tela
+        child: Column(
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                'Olá usuário',
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.blue,
+                ),
+              ),
+            ),
+            const Text(
+              'Aqui está uma praia',
+              style: TextStyle(
+                fontSize: 40,
+                color: Colors.blue,
+              ),
+            ),
+            Image.network(
+                'https://static3.depositphotos.com/1001920/140/i/450/depositphotos_1400122-stock-photo-beach.jpg'),
+            SizedBox(height: 20),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  primary: Colors.black,
+                  textStyle: const TextStyle(fontSize: 40)),
+              onPressed: () {
+                print('Fui clicado');
+                
+
+              },
+              child: const Text('Clique aqui'),
+
+            )
+          ],
+        ),
       ),
     );
   }
+  
 }
